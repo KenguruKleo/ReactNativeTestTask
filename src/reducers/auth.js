@@ -5,6 +5,7 @@ const AUTHENTICATED_SEND_REQUEST = 'reactNativeTestTask/auth/AUTHENTICATED_SEND_
 const AUTHENTICATED_SUCCESS = 'reactNativeTestTask/auth/AUTHENTICATED_SUCCESS';
 const AUTHENTICATED_ERROR = 'reactNativeTestTask/auth/AUTHENTICATED_ERROR';
 const AUTHENTICATED_ERROR_CLEAR = 'reactNativeTestTask/auth/AUTHENTICATED_ERROR_CLEAR';
+const LOGOUT = 'reactNativeTestTask/auth/LOGOUT';
 
 function userReducer(state='', action={}){
     switch (action.type){
@@ -12,6 +13,7 @@ function userReducer(state='', action={}){
         case AUTHENTICATED_SUCCESS:
             return action.user;
         case AUTHENTICATED_ERROR:
+        case LOGOUT:
             return '';
         default:
             return state;
@@ -23,6 +25,7 @@ function authenticatedReducer(state=false, action={}) {
         case AUTHENTICATED_SUCCESS:
             return true;
         case AUTHENTICATED_ERROR:
+        case LOGOUT:
             return false;
         default:
             return state;
@@ -34,6 +37,7 @@ function errorReducer(state='', action) {
         case AUTHENTICATED_SEND_REQUEST:
         case AUTHENTICATED_SUCCESS:
         case AUTHENTICATED_ERROR_CLEAR:
+        case LOGOUT:
             return '';
         case AUTHENTICATED_ERROR:
             return action.error;
@@ -71,6 +75,12 @@ export function clearAuthError() {
     return {
         type: AUTHENTICATED_ERROR_CLEAR
     };
+}
+
+export function logout() {
+    return {
+        type: LOGOUT
+    }
 }
 
 

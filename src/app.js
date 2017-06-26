@@ -3,7 +3,8 @@ import {
     AppRegistry,
     StyleSheet,
     Text,
-    View
+    View,
+    Button
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Router, Scene} from 'react-native-router-flux';
@@ -28,15 +29,15 @@ class ReactNativeTestTask extends Component {
         return (
             <Provider store={store}>
                 <Router sceneStyle={{ backgroundColor: 'white' }}>
-                    <Scene key='root' hideNavBar>
+                    <Scene key='root' hideNavBar={true}>
 
                         <Scene
                             key="rootTabBar"
-                            tabs={true}
                             tabBarStyle={{backgroundColor: '#ffffff'}}>
                             <Scene key="login" component={Login} title="Login" icon={TabIcon} initial />
                             <Scene key="feed" component={Feed} title="Feed" icon={TabIcon} />
                         </Scene>
+
                     </Scene>
                 </Router>
             </Provider>

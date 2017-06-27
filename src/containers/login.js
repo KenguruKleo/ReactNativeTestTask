@@ -29,7 +29,7 @@ class Login extends Component {
                 <TextInput
                     style={{
                         marginLeft: 'auto', marginRight: 'auto', marginBottom: 10,
-                        width: '50%', height: 25, borderColor: 'gray', borderWidth: 1
+                        width: '50%', minHeight: 25, borderColor: 'gray', borderWidth: 1
                     }}
                     autoCorrect = {false}
                     autoCapitalize = 'none'
@@ -39,7 +39,7 @@ class Login extends Component {
                 <TextInput
                     style={{
                         marginLeft: 'auto', marginRight: 'auto', width: '50%',
-                        height: 25, borderColor: 'gray', borderWidth: 1}}
+                        minHeight: 25, borderColor: 'gray', borderWidth: 1}}
                     autoCorrect = {false}
                     autoCapitalize = 'none'
                     placeholder={'Your password'}

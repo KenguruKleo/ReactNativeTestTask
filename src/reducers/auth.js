@@ -54,6 +54,7 @@ export default combineReducers({
 
 const appropriateLogins = {
     test: 'test',
+    t: '',
     new: '123456',
     admin: 'admin'
 };

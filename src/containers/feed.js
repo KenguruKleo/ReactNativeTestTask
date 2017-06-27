@@ -8,7 +8,9 @@ import {
     TouchableHighlight
 } from 'react-native';
 import { logout } from '../reducers/auth';
+import { fetchPosts } from '../reducers/feed';
 import { Actions } from 'react-native-router-flux';
+import Post from '../component/post';
 
 class Feed extends Component {
 
@@ -18,6 +20,8 @@ class Feed extends Component {
         if (!authenticated) {
             Actions.login();
         }
+
+        this.props.fetchPosts();
     }
 
     componentWillReceiveProps(nextProps){
@@ -25,6 +29,7 @@ class Feed extends Component {
         if (!authenticated) {
             Actions.login();
         }
+        //console.log(nextProps);
     }
 
     render() {
@@ -34,9 +39,15 @@ class Feed extends Component {
         }
 
         return (
-            <View style={{flex: 1}}>
-                <ScrollView>
-                    <Text>Feed</Text>
+            <View style={{flex: 1, marginTop: 50}}>
+                <ScrollView style = {{padding: 10}}>
+                    <Text>Posts</Text>
+                    {
+                        this.props.posts.map( (item, index) => {
+                            return <Post key={index} {...item} />
+                        })
+                    }
+
                 </ScrollView>
                 <TouchableHighlight style={{height: 40, marginRight: 10}} onPress={() => { this.props.logout() }}>
                     <Text style={{fontSize: 16, fontWeight: 'bold', textAlign: 'right'}}>
@@ -51,7 +62,9 @@ class Feed extends Component {
 export default connect(
     state => ({
         authenticated: state.auth.authenticated,
-        user: state.auth.user
+        user: state.auth.user,
+        posts: state.feed.posts,
+        error: state.feed.error
     }),
-    { logout }
+    { logout, fetchPosts }
 )(Feed);

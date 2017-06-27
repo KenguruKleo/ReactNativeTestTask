@@ -27,12 +27,21 @@ class Login extends Component {
                     Login
                 </Text>
                 <TextInput
-                    style={{width: '50%', borderColor: 'gray', borderWidth: 1}}
+                    style={{
+                        marginLeft: 'auto', marginRight: 'auto', marginBottom: 10,
+                        width: '50%', height: 25, borderColor: 'gray', borderWidth: 1
+                    }}
+                    autoCorrect = {false}
+                    autoCapitalize = 'none'
                     placeholder={'Your login'}
                     onChangeText={login => {this.setState({login}); this.props.error && this.props.clearAuthError()}}
                 />
                 <TextInput
-                    style={{width: '50%', borderColor: 'gray', borderWidth: 1}}
+                    style={{
+                        marginLeft: 'auto', marginRight: 'auto', width: '50%',
+                        height: 25, borderColor: 'gray', borderWidth: 1}}
+                    autoCorrect = {false}
+                    autoCapitalize = 'none'
                     placeholder={'Your password'}
                     secureTextEntry={true}
                     onChangeText={pass => {this.setState({pass}); this.props.error && this.props.clearAuthError()}}

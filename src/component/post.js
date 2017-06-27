@@ -14,7 +14,7 @@ const Post = props => {
     const { author, title, description } = props;
     return (
         <View style={{height: 100, padding: 10, marginBottom: 25}}>
-            <Text style={{fontSize: 14, fontWeight: 'bold', textAlign: 'left'}}>
+            <Text style={{fontSize: 14, fontWeight: '600', textAlign: 'left'}}>
                 { author }
             </Text>
             <Text style={{fontSize: 16, fontWeight: 'bold', textAlign: 'center'}}>

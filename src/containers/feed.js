@@ -41,7 +41,6 @@ class Feed extends Component {
         return (
             <View style={{flex: 1, marginTop: 50}}>
                 <ScrollView style = {{padding: 10}}>
-                    <Text>Posts</Text>
                     {
                         this.props.posts.map( (item, index) => {
                             return <Post key={index} {...item} />
